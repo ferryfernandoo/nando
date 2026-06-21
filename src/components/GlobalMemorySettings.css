@@ -1,0 +1,214 @@
+/* Global Memory Settings Modal */
+
+.global-memory-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.global-memory-modal {
+  width: min(640px, calc(100% - 32px));
+  max-height: 85vh;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 32px 120px rgba(15, 23, 42, 0.18);
+}
+
+.modal-header {
+  padding: 24px 24px 18px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.modal-header .subtitle {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.error-banner {
+  margin: 0 24px 16px;
+  padding: 14px 16px;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 16px;
+  color: #8b1f1f;
+  font-size: 13px;
+}
+
+.memory-info {
+  padding: 0 24px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.info-item .label {
+  font-weight: 600;
+}
+
+.info-item .value {
+  color: var(--text-h);
+}
+
+.memory-content {
+  padding: 0 24px 24px;
+}
+
+.memory-textarea,
+.memory-display {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.memory-textarea {
+  min-height: 220px;
+  padding: 18px;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.memory-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(170, 59, 255, 0.14);
+}
+
+.memory-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  min-height: 180px;
+}
+
+.memory-display p,
+.memory-info-text p {
+  margin: 0;
+  color: var(--text);
+}
+
+.empty-message {
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+}
+
+.modal-actions {
+  padding: 0 24px 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-secondary,
+.btn-close {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-close:hover {
+  background: rgba(170, 59, 255, 0.08);
+}
+
+.memory-info-text {
+  margin-top: 6px;
+  padding: 18px 24px 22px;
+  background: var(--accent-bg);
+  border-top: 1px solid var(--accent-border);
+}
+
+.memory-info-text p {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .global-memory-modal {
+    width: calc(100% - 24px);
+  }
+
+  .modal-header,
+  .memory-info,
+  .memory-content,
+  .modal-actions,
+  .memory-info-text {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .modal-actions {
+    justify-content: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-close {
+    width: 100%;
+  }
+}
